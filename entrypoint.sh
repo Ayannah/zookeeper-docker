@@ -4,7 +4,7 @@ set -e
 run_zk() {
     if [ -z $ZK_ID ]; then
         echo "no ZK_ID found. Getting from hostname"
-        [[ `hostname` =~ -([0-9]+)$ ]] || echo "Unable to get ZK_ID from hostname!"; exit 1
+        [[ ! `hostname` =~ -([0-9]+)$ ]] && echo "Unable to get ZK_ID from hostname!" && exit 1
         ordinal=${BASH_REMATCH[1]}
         
         ZK_ID=$((1 + $ordinal))
