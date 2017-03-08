@@ -13,6 +13,10 @@ run_zk() {
     echo $ZK_ID > /var/lib/zookeeper/myid
     cat /var/lib/zookeeper/myid
 
+    if [ -f /etc/zookeeper/zoo.cfg ]; then
+        cp -f /etc/zookeeper/zoo.cfg /opt/zookeeper/conf/
+    fi
+
     exec /opt/zookeeper/bin/zkServer.sh start-foreground
 }
 
