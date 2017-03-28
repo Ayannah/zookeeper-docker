@@ -1,7 +1,7 @@
 FROM java:8
 MAINTAINER John Paul Alcala, jpalcala@ayannah.com
 
-ENV ZK_VERSION=3.4.8
+ENV ZK_VERSION=3.4.6
 
 RUN curl -SL http://www.us.apache.org/dist/zookeeper/zookeeper-$ZK_VERSION/zookeeper-$ZK_VERSION.tar.gz | tar xzv -C /opt \
     && mkdir -p /var/lib/zookeeper \
