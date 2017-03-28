@@ -17,6 +17,8 @@ run_zk() {
         cp -f /etc/zookeeper/zoo.cfg /opt/zookeeper/conf/
     fi
 
+    sed -ie "s/`hostname`[^:]*:/0.0.0.0:/g" /opt/zookeeper/conf/zoo.cfg
+
     exec /opt/zookeeper/bin/zkServer.sh start-foreground
 }
 
